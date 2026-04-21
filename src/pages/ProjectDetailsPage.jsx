@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import projectService from '../services/projectService';
 import taskService from '../services/taskService';
@@ -81,13 +81,22 @@ const ProjectDetailsPage = () => {
     };
 
     if (loading) return <div className="loader">Cargando detalles...</div>;
-    if (!project) return <div className="error-page">Proyecto no encontrado</div>;
+    if (!project) return (
+        <div className="error-page card-glass">
+            <Navbar />
+            <div className="text-center p-10">
+                <h2>Proyecto no encontrado</h2>
+                <Link to="/" className="btn-primary mt-4">Volver al Dashboard</Link>
+            </div>
+        </div>
+    );
 
     return (
         <div className="project-details-container animate-fade-in">
             <Navbar />
 
             <main className="project-details-content">
+                {error && <div className="alert-error mb-4">{error}</div>}
                 <div className="project-actions-bar">
                     <Link to="/" className="btn-back">Volver al Dashboard</Link>
                     <button onClick={handleDeleteProject} className="btn-delete-project">Eliminar Proyecto</button>
@@ -176,7 +185,6 @@ const ProjectDetailsPage = () => {
                             <select 
                                 value={taskFormData.priority}
                                 onChange={(e) => setTaskFormData({ ...taskFormData, priority: e.target.value })}
-                                className="input"
                             >
                                 <option value="baja">Baja</option>
                                 <option value="media">Media</option>
