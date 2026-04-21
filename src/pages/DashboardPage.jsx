@@ -24,6 +24,7 @@ const DashboardPage = () => {
             const response = await projectService.getProjects();
             setProjects(response.data);
         } catch (err) {
+            console.error(err);
             setError('Error al cargar los proyectos');
         } finally {
             setLoading(false);
@@ -37,8 +38,9 @@ const DashboardPage = () => {
             await projectService.createProject(formData);
             setIsModalOpen(false);
             setFormData({ name: '', description: '' });
-            fetchProjects();
+            fetchProjects().catch(err => console.error(err));
         } catch (err) {
+            console.error(err);
             alert('Error al crear el proyecto');
         } finally {
             setCreateLoading(false);

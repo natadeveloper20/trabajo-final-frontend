@@ -31,6 +31,7 @@ const ProjectDetailsPage = () => {
             const tasksData = await taskService.getTasksByProject(id);
             setTasks(tasksData.data);
         } catch (err) {
+            console.error(err);
             setError('Error al cargar los detalles del proyecto');
         } finally {
             setLoading(false);
@@ -38,7 +39,7 @@ const ProjectDetailsPage = () => {
     }, [id]);
 
     useEffect(() => {
-        fetchProjectDetails();
+        fetchProjectDetails().catch(err => console.error(err));
     }, [fetchProjectDetails]);
 
     const handleCreateTask = async (e) => {
@@ -51,8 +52,9 @@ const ProjectDetailsPage = () => {
             });
             setIsModalOpen(false);
             setTaskFormData({ title: '', description: '', priority: 'media', dueDate: '' });
-            fetchProjectDetails();
+            fetchProjectDetails().catch(err => console.error(err));
         } catch (err) {
+            console.error(err);
             alert('Error al crear la tarea');
         } finally {
             setCreateLoading(false);
@@ -65,8 +67,8 @@ const ProjectDetailsPage = () => {
                 await projectService.deleteProject(id);
                 navigate('/');
             } catch (err) {
+                console.error(err);
                 alert('Error al eliminar el proyecto');
-            }
         }
     };
 
@@ -76,6 +78,7 @@ const ProjectDetailsPage = () => {
             await taskService.updateTask(taskId, { status: newStatus });
             setTasks(tasks.map(t => t._id === taskId ? { ...t, status: newStatus } : t));
         } catch (err) {
+            console.error(err);
             alert('Error al actualizar la tarea');
         }
     };
