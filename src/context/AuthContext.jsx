@@ -1,4 +1,5 @@
-import { createContext, useState, useEffect, useContext } from 'react';
+import React, { createContext, useState, useEffect, useContext } from 'react';
+import PropTypes from 'prop-types';
 import authService from '../services/authService';
 
 const AuthContext = createContext();
@@ -10,7 +11,12 @@ export const AuthProvider = ({ children }) => {
     useEffect(() => {
         const storedUser = localStorage.getItem('user');
         if (storedUser) {
-            setUser(JSON.parse(storedUser));
+            try {
+                setUser(JSON.parse(storedUser));
+            } catch (error) {
+                console.error("Error al parsear el usuario del localStorage", error);
+                localStorage.removeItem('user');
+            }
         }
         setLoading(false);
     }, []);
@@ -35,6 +41,10 @@ export const AuthProvider = ({ children }) => {
             {!loading && children}
         </AuthContext.Provider>
     );
+};
+
+AuthProvider.propTypes = {
+    children: PropTypes.node.isRequired
 };
 
 export const useAuth = () => {

@@ -1,13 +1,21 @@
+import React from 'react';
+import PropTypes from 'prop-types';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import VerifyEmailPage from './pages/VerifyEmailPage';
+import DashboardPage from './pages/DashboardPage';
+import ProjectDetailsPage from './pages/ProjectDetailsPage';
 
 // Componente para proteger rutas
 const PrivateRoute = ({ children }) => {
     const { user } = useAuth();
     return user ? children : <Navigate to="/login" />;
+};
+
+PrivateRoute.propTypes = {
+    children: PropTypes.node.isRequired
 };
 
 // Placeholder para el Dashboard
@@ -37,12 +45,20 @@ function App() {
                     <Route path="/register" element={<RegisterPage />} />
                     <Route path="/verify-email/:token" element={<VerifyEmailPage />} />
                     
-                    {/* Ruta Protegida */}
+                    {/* Rutas Protegidas */}
                     <Route 
                         path="/" 
                         element={
                             <PrivateRoute>
-                                <Dashboard />
+                                <DashboardPage />
+                            </PrivateRoute>
+                        } 
+                    />
+                    <Route 
+                        path="/project/:id" 
+                        element={
+                            <PrivateRoute>
+                                <ProjectDetailsPage />
                             </PrivateRoute>
                         } 
                     />
