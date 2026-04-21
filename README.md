@@ -28,7 +28,7 @@ Interfaz de usuario moderna, intuitiva y responsiva para la gestión de proyecto
    ```bash
    npm install
    ```
-3. **Configurar Variables de Entorno**:
+3. **Configurar Variables de Envío**:
    Crea un archivo `.env` en la raíz:
    ```env
    VITE_API_URL=http://localhost:5000/api
@@ -43,7 +43,7 @@ Interfaz de usuario moderna, intuitiva y responsiva para la gestión de proyecto
 - **Login / Registro**: Flujos validados con estados de carga y manejo de errores del servidor.
 - **Verificación de Cuenta**: Landing page que procesa el token de activación enviado por email.
 - **Dashboard**: Panel principal con la vista de todos los proyectos en formato de tarjetas interactivas.
-- **Detalle de Proyecto**: Vista granular para gestionar tareas, cambiar su estado (drag & drop conceptual) y ver progresos.
+- **Detalle de Proyecto**: Vista granular para gestionar tareas, cambiar su estado y ver progresos.
 
 ---
 
