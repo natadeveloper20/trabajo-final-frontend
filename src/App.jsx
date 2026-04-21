@@ -18,23 +18,6 @@ PrivateRoute.propTypes = {
     children: PropTypes.node.isRequired
 };
 
-// Placeholder para el Dashboard
-const Dashboard = () => {
-    const { user, logout } = useAuth();
-    return (
-        <div style={{ padding: '40px', textAlign: 'center' }}>
-            <h1>Bienvenido, {user?.firstName}!</h1>
-            <p>Has iniciado sesión correctamente. Aquí gestionaremos tus proyectos muy pronto.</p>
-            <button 
-                onClick={logout} 
-                className="btn-primary" 
-                style={{ width: 'auto', marginTop: '20px', padding: '10px 30px' }}
-            >
-                Cerrar Sesión
-            </button>
-        </div>
-    );
-};
 
 function App() {
     return (
