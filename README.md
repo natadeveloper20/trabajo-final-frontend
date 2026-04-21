@@ -1,22 +1,22 @@
-# ProjectHub - Frontend 💻
+# ProjectHub - Frontend 
 
 Interfaz de usuario moderna y responsiva para la gestión de proyectos y tareas. Desarrollada con React y Vite.
 
-## 📋 Características
+## Características
 - **UI Responsiva**: Optimizada para dispositivos móviles y escritorio (320px a 2000px).
 - **Diseño Premium**: Estética de modo oscuro con efectos de Glassmorphism (cristal).
 - **Gestión de Estado**: Uso de `React Context API` para el manejo global de autenticación.
 - **Navegación**: Enrutamiento dinámico y protegido con `React Router`.
 - **Integración API**: Comunicación fluida con el backend mediante `Axios`.
 
-## 🛠️ Tecnologías
+## Tecnologías
 - React 19
 - Vite
 - Axios
 - React Router Dom
 - Vanilla CSS (Glassmorphism design)
 
-## ⚙️ Instalación y Uso
+## Instalación y Uso
 
 1. Clonar el repositorio.
 2. Ejecutar `npm install` para instalar las dependencias.
@@ -26,11 +26,11 @@ Interfaz de usuario moderna y responsiva para la gestión de proyectos y tareas.
    ```
 4. Ejecutar `npm run dev` para iniciar el servidor de desarrollo.
 
-## 📱 Pantallas Principales
+## Pantallas Principales
 - **Login / Registro**: Flujo de autenticación con feedback visual.
 - **Verificación de Email**: Página de destino para la activación de cuenta.
 - **Dashboard**: Vista principal con la cuadrícula de proyectos del usuario.
 - **Detalle de Proyecto**: Vista específica para gestionar tareas, cambiar su estado y prioridades.
 
-## 📄 Licencia
+## Licencia
 Este proyecto es para fines académicos (UTN - PWA).
