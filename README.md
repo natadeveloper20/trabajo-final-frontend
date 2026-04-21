@@ -1,16 +1,36 @@
-# React + Vite
+# ProjectHub - Frontend 💻
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Interfaz de usuario moderna y responsiva para la gestión de proyectos y tareas. Desarrollada con React y Vite.
 
-Currently, two official plugins are available:
+## 📋 Características
+- **UI Responsiva**: Optimizada para dispositivos móviles y escritorio (320px a 2000px).
+- **Diseño Premium**: Estética de modo oscuro con efectos de Glassmorphism (cristal).
+- **Gestión de Estado**: Uso de `React Context API` para el manejo global de autenticación.
+- **Navegación**: Enrutamiento dinámico y protegido con `React Router`.
+- **Integración API**: Comunicación fluida con el backend mediante `Axios`.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🛠️ Tecnologías
+- React 19
+- Vite
+- Axios
+- React Router Dom
+- Vanilla CSS (Glassmorphism design)
 
-## React Compiler
+## ⚙️ Instalación y Uso
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+1. Clonar el repositorio.
+2. Ejecutar `npm install` para instalar las dependencias.
+3. Configurar el archivo `.env` (o usar el valor por defecto configurado en `api.js`):
+   ```env
+   VITE_API_URL=http://localhost:5000/api
+   ```
+4. Ejecutar `npm run dev` para iniciar el servidor de desarrollo.
 
-## Expanding the ESLint configuration
+## 📱 Pantallas Principales
+- **Login / Registro**: Flujo de autenticación con feedback visual.
+- **Verificación de Email**: Página de destino para la activación de cuenta.
+- **Dashboard**: Vista principal con la cuadrícula de proyectos del usuario.
+- **Detalle de Proyecto**: Vista específica para gestionar tareas, cambiar su estado y prioridades.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 📄 Licencia
+Este proyecto es para fines académicos (UTN - PWA).
