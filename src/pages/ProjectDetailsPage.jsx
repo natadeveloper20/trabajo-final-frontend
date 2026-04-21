@@ -89,7 +89,7 @@ const ProjectDetailsPage = () => {
 
             <main className="project-details-content">
                 <div className="project-actions-bar">
-                    <Link to="/" className="btn-back">← Volver al Dashboard</Link>
+                    <Link to="/" className="btn-back">Volver al Dashboard</Link>
                     <button onClick={handleDeleteProject} className="btn-delete-project">Eliminar Proyecto</button>
                 </div>
 
@@ -115,14 +115,14 @@ const ProjectDetailsPage = () => {
                             tasks.map(task => (
                                 <div key={task._id} className={`task-item card-glass ${task.status}`}>
                                     <div className="task-status-checkbox" onClick={() => handleToggleTaskStatus(task._id, task.status)}>
-                                        {task.status === 'completada' ? '✅' : '⭕'}
+                                        {task.status === 'completada' ? '[Hecho]' : '[Pendiente]'}
                                     </div>
                                     <div className="task-body">
                                         <h4>{task.title}</h4>
                                         <p>{task.description}</p>
                                         <div className="task-badges">
                                             <span className={`badge priority-${task.priority}`}>{task.priority}</span>
-                                            {task.dueDate && <span className="badge-date">📅 {new Date(task.dueDate).toLocaleDateString()}</span>}
+                                            {task.dueDate && <span className="badge-date">Fecha: {new Date(task.dueDate).toLocaleDateString()}</span>}
                                         </div>
                                     </div>
                                 </div>

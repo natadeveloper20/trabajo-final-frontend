@@ -50,7 +50,7 @@ const RegisterPage = () => {
         return (
             <div className="auth-container animate-fade-in">
                 <div className="auth-card card-glass text-center">
-                    <div className="icon-success">📧</div>
+                    <div className="icon-success">Email Enviado</div>
                     <h2>¡Registro casi completo!</h2>
                     <p>Hemos enviado un correo de verificación a <strong>{formData.email}</strong>.</p>
                     <p>Por favor, revisa tu bandeja de entrada para activar tu cuenta.</p>

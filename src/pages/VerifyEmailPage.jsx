@@ -28,7 +28,7 @@ const VerifyEmailPage = () => {
             <div className="auth-card card-glass text-center">
                 {status === 'verifying' && (
                     <>
-                        <div className="spinner">⌛</div>
+                        <div className="spinner">Cargando...</div>
                         <h2>Verificando tu email...</h2>
                         <p>Espera un momento mientras validamos tu cuenta.</p>
                     </>
@@ -36,7 +36,7 @@ const VerifyEmailPage = () => {
 
                 {status === 'success' && (
                     <>
-                        <div className="icon-success">✅</div>
+                        <div className="icon-success">Confirmado</div>
                         <h2>¡Cuenta Activada!</h2>
                         <p>{message}</p>
                         <button className="btn-primary mt-4" onClick={() => navigate('/login')}>Ir al Login</button>
@@ -45,7 +45,7 @@ const VerifyEmailPage = () => {
 
                 {status === 'error' && (
                     <>
-                        <div className="icon-error">❌</div>
+                        <div className="icon-error">Error</div>
                         <h2>Error de Verificación</h2>
                         <p className="text-error">{message}</p>
                         <button className="btn-primary mt-4" onClick={() => navigate('/register')}>Volver a Registrarse</button>

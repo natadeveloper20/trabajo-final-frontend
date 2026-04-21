@@ -73,7 +73,7 @@ const DashboardPage = () => {
                                 <p>{project.description}</p>
                                 <div className="project-meta">
                                     <span>{project.tasks?.length || 0} tareas</span>
-                                    <span>Ver detalles →</span>
+                                    <span>Ver detalles</span>
                                 </div>
                             </Link>
                         ))
