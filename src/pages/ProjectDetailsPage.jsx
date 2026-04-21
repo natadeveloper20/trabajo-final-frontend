@@ -61,14 +61,10 @@ const ProjectDetailsPage = () => {
         }
     };
 
-    const handleDeleteProject = async () => {
-        if (window.confirm('¿Estás seguro de que quieres eliminar este proyecto y todas sus tareas?')) {
-            try {
-                await projectService.deleteProject(id);
-                navigate('/');
             } catch (err) {
                 console.error(err);
                 alert('Error al eliminar el proyecto');
+            }
         }
     };
 

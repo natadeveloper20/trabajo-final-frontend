@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import projectService from '../services/projectService';
 import Navbar from '../components/Navbar';
@@ -15,11 +15,7 @@ const DashboardPage = () => {
     const [formData, setFormData] = useState({ name: '', description: '' });
     const [createLoading, setCreateLoading] = useState(false);
 
-    useEffect(() => {
-        fetchProjects();
-    }, []);
-
-    const fetchProjects = async () => {
+    const fetchProjects = useCallback(async () => {
         try {
             const response = await projectService.getProjects();
             setProjects(response.data);
@@ -29,7 +25,11 @@ const DashboardPage = () => {
         } finally {
             setLoading(false);
         }
-    };
+    }, []);
+
+    useEffect(() => {
+        fetchProjects().catch(err => console.error(err));
+    }, [fetchProjects]);
 
     const handleCreateProject = async (e) => {
         e.preventDefault();
