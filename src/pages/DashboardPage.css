@@ -1,86 +1,159 @@
 .dashboard-content {
-    padding: 0 40px 40px;
+    padding: 0 40px 60px;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
 .dashboard-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
+    padding: 20px 0;
 }
 
 .dashboard-header h2 {
-    font-size: 1.8rem;
+    font-size: 2.2rem;
+    font-weight: 800;
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 25px;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px;
 }
 
 .project-card {
-    padding: 25px;
+    padding: 30px;
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    transition: transform 0.3s ease, border-color 0.3s ease;
+    gap: 20px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--accent-gradient);
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 .project-card:hover {
-    transform: translateY(-5px);
-    border-color: var(--primary-color);
+    transform: translateY(-8px) scale(1.02);
+    border-color: rgba(99, 102, 241, 0.4);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.project-card:hover::before {
+    opacity: 1;
 }
 
 .project-card h3 {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     color: white;
+    font-weight: 700;
 }
 
 .project-card p {
     color: var(--text-secondary);
-    font-size: 0.95rem;
-    line-height: 1.5;
+    font-size: 1rem;
+    line-height: 1.6;
     display: -webkit-box;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
 
 .project-meta {
     margin-top: auto;
+    padding-top: 20px;
+    border-top: 1px solid var(--glass-border);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     color: var(--primary-color);
-    font-weight: 500;
+    font-weight: 600;
 }
 
-.empty-state {
-    grid-column: 1 / -1;
-    padding: 60px;
-    text-align: center;
-    color: var(--text-secondary);
+.project-meta span:last-child {
+    background: rgba(99, 102, 241, 0.1);
+    padding: 4px 12px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
 }
 
-.loader {
+.project-card:hover .project-meta span:last-child {
+    background: var(--primary-color);
+    color: white;
+}
+
+.project-card-header {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    font-size: 1.2rem;
-    color: var(--primary-color);
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 15px;
 }
 
-@media (max-width: 630px) {
-    .dashboard-content {
-        padding: 0 20px 20px;
-    }
-    
-    .dashboard-header {
-        flex-direction: column;
-        gap: 20px;
-        align-items: flex-start;
+.project-progress-circle {
+    background: rgba(99, 102, 241, 0.1);
+    color: var(--primary-color);
+    padding: 6px 10px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    border: 1px solid rgba(99, 102, 241, 0.2);
+}
+
+.project-progress-container {
+    margin: 5px 0;
+}
+
+.progress-bar-bg {
+    width: 100%;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background: var(--accent-gradient);
+    border-radius: 10px;
+    transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 0 10px var(--primary-glow);
+}
+
+.empty-icon {
+    font-size: 4rem;
+    margin-bottom: 10px;
+    opacity: 0.8;
+}
+
+.empty-state h3 {
+    font-size: 1.5rem;
+    color: white;
+}
+
+.empty-state p {
+    max-width: 400px;
+}
+
+@media (max-width: 768px) {
+    .project-card-header h3 {
+        font-size: 1.2rem;
     }
 }
+
+

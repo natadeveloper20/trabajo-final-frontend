@@ -47,7 +47,14 @@ const DashboardPage = () => {
         }
     };
 
-    if (loading) return <div className="loader">Cargando proyectos...</div>;
+    if (loading) {
+        return (
+            <div className="loader-container">
+                <span className="premium-loader"></span>
+                <p style={{ color: 'var(--text-secondary)', fontWeight: '500' }}>Cargando tus proyectos...</p>
+            </div>
+        );
+    }
 
     return (
         <div className="dashboard-container animate-fade-in">
@@ -69,19 +76,49 @@ const DashboardPage = () => {
 
                 <div className="projects-grid">
                     {projects.length > 0 ? (
-                        projects.map(project => (
-                            <Link to={`/project/${project._id}`} key={project._id} className="project-card card-glass">
-                                <h3>{project.name}</h3>
-                                <p>{project.description}</p>
-                                <div className="project-meta">
-                                    <span>{project.tasks?.length || 0} tareas</span>
-                                    <span>Ver detalles</span>
-                                </div>
-                            </Link>
-                        ))
+                        projects.map(project => {
+                            const totalTasks = project.tasks?.length || 0;
+                            const completedTasks = project.tasks?.filter(t => t.status === 'completada').length || 0;
+                            const progress = totalTasks > 0 ? Math.round((completedTasks / totalTasks) * 100) : 0;
+
+                            return (
+                                <Link to={`/project/${project._id}`} key={project._id} className="project-card card-glass">
+                                    <div className="project-card-header">
+                                        <h3>{project.name}</h3>
+                                        <div className="project-progress-circle">
+                                            {progress}%
+                                        </div>
+                                    </div>
+                                    <p>{project.description}</p>
+                                    
+                                    <div className="project-progress-container">
+                                        <div className="progress-bar-bg">
+                                            <div 
+                                                className="progress-bar-fill" 
+                                                style={{ width: `${progress}%` }}
+                                            ></div>
+                                        </div>
+                                    </div>
+
+                                    <div className="project-meta">
+                                        <span>{totalTasks} tareas</span>
+                                        <span>{completedTasks} completadas</span>
+                                    </div>
+                                </Link>
+                            );
+                        })
                     ) : (
-                        <div className="empty-state card-glass">
-                            <p>No tienes proyectos aún. ¡Crea el primero!</p>
+                        <div className="empty-state card-glass animate-fade-in">
+                            <div className="empty-icon">📂</div>
+                            <h3>No hay proyectos activos</h3>
+                            <p>Organiza tus ideas y empieza a gestionar tus tareas hoy mismo.</p>
+                            <button 
+                                className="btn-primary" 
+                                style={{ marginTop: '20px' }}
+                                onClick={() => setIsModalOpen(true)}
+                            >
+                                Crear mi primer proyecto
+                            </button>
                         </div>
                     )}
                 </div>
@@ -107,19 +144,10 @@ const DashboardPage = () => {
                         <label>Descripción</label>
                         <textarea 
                             required 
+                            className="form-textarea"
                             value={formData.description}
                             onChange={(e) => setFormData({ ...formData, description: e.target.value })}
                             placeholder="Describe brevemente de qué trata este proyecto..."
-                            style={{ 
-                                width: '100%', 
-                                padding: '12px', 
-                                background: 'rgba(255,255,255,0.05)', 
-                                border: '1px solid rgba(255,255,255,0.1)',
-                                borderRadius: '8px',
-                                color: 'white',
-                                fontFamily: 'inherit',
-                                minHeight: '100px'
-                            }}
                         />
                     </div>
                     <button type="submit" className="btn-primary" disabled={createLoading}>

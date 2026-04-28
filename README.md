@@ -1,50 +1,56 @@
-# ProjectHub - Frontend
+# ✨ ProjectHub - Frontend
 
-Interfaz de usuario moderna, intuitiva y responsiva para la gestión de proyectos y tareas. Desarrollada con React 19 y Vite para una experiencia de desarrollo y usuario ultrarrápida.
+Interfaz de usuario premium y moderna desarrollada con **React 19** y **Vite**. Este sistema permite gestionar proyectos y tareas de forma intuitiva, con un enfoque fuerte en la experiencia de usuario (UX/UI).
 
-## Características Principales
+## 💎 Características Visuales (Premium UI)
+- **Glassmorphism Design**: Interfaz translúcida con efectos de desenfoque y profundidad.
+- **Micro-interacciones**: Animaciones suaves al pasar el mouse por tarjetas y botones.
+- **Dark Mode Moderno**: Paleta de colores curada para reducir la fatiga visual.
+- **Feedback en Tiempo Real**: Loaders personalizados y manejo visual de estados de carga.
 
-- **Diseño Glassmorphism**: Estética premium con efectos de cristal, desenfoque y modo oscuro elegante.
-- **Totalmente Responsiva**: Adaptabilidad fluida desde móviles (320px) hasta monitores UltraWide (2000px).
-- **Gestión de Estado Global**: Uso eficiente de `React Context API` para el manejo de la sesión del usuario.
-- **Seguridad**: Rutas protegidas que redirigen dinámicamente si el usuario no ha iniciado sesión.
-- **Interacción Dinámica**: Modales animados, micro-interacciones y feedback en tiempo real mediante Axios.
+## 📱 Responsividad (Requisito 320px - 2000px)
+La aplicación ha sido testeada rigurosamente para garantizar una visualización perfecta en:
+- **Mobile (iPhone SE/Android)**: Menús colapsables y tarjetas adaptadas.
+- **Tablets**: Grillas dinámicas que ajustan el contenido.
+- **Desktop & UltraWide**: Aprovechamiento del espacio manteniendo la legibilidad.
 
-## Tecnologías
+## 🚀 Tecnologías
+- **Framework**: React 19 + Vite
+- **Routing**: React Router Dom 7
+- **HTTP Client**: Axios (con interceptores para JWT)
+- **Estilos**: Vanilla CSS con Sistema de Variables CSS (Design Tokens).
+- **Context API**: Gestión global del estado de autenticación.
 
-- **Core**: React 19 + Vite
-- **Navegación**: React Router Dom 7
-- **Comunicación**: Axios con interceptores para manejo de tokens.
-- **Estilos**: Vanilla CSS con variables personalizadas (sin librerías pesadas para máximo rendimiento).
-- **Iconos**: Iconografía moderna y minimalista basada en fuentes y CSS.
+## 🛠️ Instalación y Uso
 
-## Instalación y Uso
-
-1. **Clonar y Entrar**:
+1. **Clonar el repositorio**:
    ```bash
-   cd frontend
+   git clone [URL-DEL-REPO]
+   cd ProjectHub/frontend
    ```
-2. **Instalar Dependencias**:
+
+2. **Instalar dependencias**:
    ```bash
    npm install
    ```
-3. **Configurar Variables de Envío**:
-   Crea un archivo `.env` en la raíz:
+
+3. **Variables de Entorno**:
+   Crea un archivo `.env` basado en `.env.example`:
    ```env
    VITE_API_URL=http://localhost:5000/api
    ```
-4. **Iniciar Servidor de Desarrollo**:
+
+4. **Ejecutar**:
    ```bash
    npm run dev
    ```
 
-## Estructura de Pantallas
-
-- **Login / Registro**: Flujos validados con estados de carga y manejo de errores del servidor.
-- **Verificación de Cuenta**: Landing page que procesa el token de activación enviado por email.
-- **Dashboard**: Panel principal con la vista de todos los proyectos en formato de tarjetas interactivas.
-- **Detalle de Proyecto**: Vista granular para gestionar tareas, cambiar su estado y ver progresos.
+## 🖼️ Estructura de la App
+- **Login/Registro**: Formularios validados con feedback visual.
+- **Dashboard**: Vista general con barras de progreso dinámicas por proyecto.
+- **Detalle de Proyecto**: Gestión granular de tareas con filtros (Pendientes/Completadas).
+- **Verificación**: Pantalla de éxito/error tras la activación por email.
 
 ---
-
-_Este proyecto forma parte del Trabajo Integrador Final de la UTN._
+**Desarrollado para:** UTN - Programación Web Avanzada.
+**URL Deploy Web:** [Placeholder: Tu_URL_de_Vercel_o_Netlify]
