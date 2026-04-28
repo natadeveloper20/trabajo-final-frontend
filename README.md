@@ -62,4 +62,4 @@ La aplicación ha sido testeada rigurosamente para garantizar una visualización
 ---
 
 **Desarrollado para:** UTN - Programación Web Avanzada.
-**URL Deploy Web:** [Placeholder: Tu_URL_de_Vercel_o_Netlify]
+**URL Deploy Web:** https://trabajo-final-frontend-ten.vercel.app
