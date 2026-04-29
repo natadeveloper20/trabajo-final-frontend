@@ -122,7 +122,7 @@ input:focus, textarea:focus {
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Premium Loader */
+/* Main Loader */
 .loader-container {
   display: flex;
   flex-direction: column;
@@ -132,7 +132,7 @@ input:focus, textarea:focus {
   gap: 20px;
 }
 
-.premium-loader {
+.custom-loader {
   width: 48px;
   height: 48px;
   border: 3px solid rgba(99, 102, 241, 0.2);
@@ -143,7 +143,7 @@ input:focus, textarea:focus {
   animation: rotation 1s linear infinite;
 }
 
-.premium-loader::after {
+.custom-loader::after {
   content: '';  
   box-sizing: border-box;
   position: absolute;

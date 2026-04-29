@@ -28,7 +28,7 @@ const VerifyEmailPage = () => {
             <div className="auth-card card-glass text-center">
                 {status === 'verifying' && (
                     <div className="loader-container" style={{ height: 'auto', padding: '20px' }}>
-                        <span className="premium-loader"></span>
+                        <span className="custom-loader"></span>
                         <h2>Verificando tu email...</h2>
                         <p>Espera un momento mientras validamos tu cuenta.</p>
                     </div>

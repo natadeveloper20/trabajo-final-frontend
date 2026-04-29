@@ -50,7 +50,7 @@ const DashboardPage = () => {
     if (loading) {
         return (
             <div className="loader-container">
-                <span className="premium-loader"></span>
+                <span className="custom-loader"></span>
                 <p style={{ color: 'var(--text-secondary)', fontWeight: '500' }}>Cargando tus proyectos...</p>
             </div>
         );

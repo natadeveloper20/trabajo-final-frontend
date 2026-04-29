@@ -1,8 +1,8 @@
 # ProjectHub - Frontend
 
-Interfaz de usuario premium y moderna desarrollada con **React 19** y **Vite**. Este sistema permite gestionar proyectos y tareas de forma intuitiva, con un enfoque fuerte en la experiencia de usuario (UX/UI).
+Interfaz de usuario profesional y moderna desarrollada con **React 19** y **Vite**. Este sistema permite gestionar proyectos y tareas de forma intuitiva, con un enfoque fuerte en la experiencia de usuario (UX/UI).
 
-## Características Visuales (Premium UI)
+## Características Visuales y UI
 
 - **Glassmorphism Design**: Interfaz translúcida con efectos de desenfoque y profundidad.
 - **Micro-interacciones**: Animaciones suaves al pasar el mouse por tarjetas y botones.
@@ -11,7 +11,7 @@ Interfaz de usuario premium y moderna desarrollada con **React 19** y **Vite**. 
 
 ## Responsividad (Requisito 320px - 2000px)
 
-La aplicación ha sido testeada rigurosamente para garantizar una visualización perfecta en:
+La aplicación ha sido testeada rigurosamente para garantizar una visualización consistente en:
 
 - **Mobile (iPhone SE/Android)**: Menús colapsables y tarjetas adaptadas.
 - **Tablets**: Grillas dinámicas que ajustan el contenido.
